@@ -68,21 +68,21 @@ class DoneBar extends React.Component {
     let { bottom, width, opacity } = this.state;
 
     return (
-      <Animated.View style={[{ bottom, width, opacity }, styles.barWrapper]}>
+      <Animated.View style={[{ bottom, width, opacity }, styles.barWrapper, this.props.containerStyles]}>
         <View
-          style={styles.bar}
+          style={[styles.bar, this.props.barStyles]}
           >
           <TouchableOpacity
-            style={styles.button}
+            style={[styles.button, this.props.buttonStyles]}
             onPress={() => {
               Keyboard.dismiss();
               this.props.onPress();
             }}
             >
-            <Text style={styles.done}>{this.props.text}</Text>
+            <Text style={[styles.done, this.props.textStyles]}>{this.props.text}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.bar} />
+        <View style={[styles.bar, this.props.barStyles]} />
       </Animated.View>
     );
   }
